@@ -30,7 +30,9 @@ code {
 
 
 /* responsive design */
-@media screen and (min-width: 490px) {
-
+@media screen and (max-width: 490px) {
+    .download-box {
+      width: auto;
+    }
 }
 
