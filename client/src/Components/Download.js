@@ -40,10 +40,10 @@ class Download extends Component {
 
     render() {
         return (
-            <div className="w-1/2 center m-auto" >
+            <div className=" center m-auto" >
                 <form onSubmit={this.onSubmit.bind(this)} className="flex flex-col items-center">
                 <input type="text" 
-                            className="shadow appearance-none mt-5 mb-5 border rounded w-96 py-3 px-7 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            className="download-box shadow appearance-none mt-5 mb-5 border rounded w-96 py-3 px-7 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             value={this.state.link}
                             name="link"
                             placeholder = "Paste Link Here"
