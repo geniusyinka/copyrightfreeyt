@@ -2,7 +2,20 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Content from './Content';
 import $ from 'jquery';
+import { css } from "@emotion/react";
+import BeatLoader from "react-spinners/BeatLoader";
 
+
+const override = css`
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  border-color: blue;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
 
 class Dash extends Component {
     constructor(props) {
@@ -11,7 +24,8 @@ class Dash extends Component {
         this.state = {
             loading: true,
             videos: [],
-            links: ''
+            links: '',
+            
         }
     }
 
@@ -26,7 +40,6 @@ class Dash extends Component {
 
 
     render(props)  {
-
         var link = null;
         var url;
         //var log;
@@ -85,7 +98,7 @@ class Dash extends Component {
 
                 {/* <h1 data-label="hey!" onClick={log}>yoo!</h1> */}
                 {this.state.loading || !this.state.videos  ? 
-                <div>Loading videos...</div> : 
+                <BeatLoader color={"#123abc"} loading={this.state.loading} css={override} size={50} speedMultiplier={1} margin={2} /> : 
                 <div className="renderVideo mb-10 flex flex-wrap justify-center">
                     {loadData}
                 </div>}
