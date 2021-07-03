@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link, Switch, BrowserRouter as Router } from 'react-router-dom';
-import Download from './Download';
+import { Link } from 'react-router-dom';
 
 
 function Nav(props) {
