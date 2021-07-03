@@ -62,7 +62,7 @@ class Dash extends Component {
             })
             .then(res => {console.log(res.data)
                     if (res.data.message === "filled!") {
-                        window.open('http://localhost:5000/downloads', '_parent')
+                        window.open('/downloads', '_parent')
                     }
                 })
         }

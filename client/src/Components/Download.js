@@ -27,7 +27,7 @@ class Download extends Component {
             .post('/data', $(e.target).serialize())
             .then(res => {console.log(res.data)
                 if (res.data.message === "filled!") {
-                    window.open('http://localhost:5000/downloads', '_parent')
+                    window.open('/downloads', '_parent')
                 }
             })
             .catch(err => {
