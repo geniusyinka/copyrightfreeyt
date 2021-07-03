@@ -12,7 +12,7 @@ function Nav(props) {
                 </div>
                 <div className="links flex  mt-1 text-xl font-medium justify-between text-gray-500">
                     <a className="mr-3" href="/">Home</a>
-                    <a className="mr-3" href="http://github.com/yunggenius ">Github</a>
+                    <a className="mr-3" href="https://github.com/yunggenius/ytdownloader-react-node" target="_blank">Github</a>
                     <Link className="" to='/download'>Download</Link>
                 </div>
             </div>
