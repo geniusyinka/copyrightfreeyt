@@ -11,7 +11,10 @@ class Download extends Component {
             link: '',
             downloads: null
         }
+    }
 
+    componentDidMount() {
+        document.title = 'Download Page'
     }
 
     onChangeHandle = (e) => {
@@ -25,17 +28,14 @@ class Download extends Component {
         e.preventDefault();
         axios
             .post('/data', $(e.target).serialize())
-            .then(res => {console.log(res.data)
-                if (res.data.message === "filled!") {
+            .then(res => {
+                if (res.data.message === "success") {
                     window.open('/downloads', '_parent')
                 }
             })
             .catch(err => {
                 console.error(err)
-            })
-
-
-           
+            });
     }
 
     render() {
