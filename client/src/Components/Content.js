@@ -6,14 +6,16 @@ function Content(props) {
     return (
         <div className='box mt-10 mr-5 ml-5 flex flex-col'>
             <div className="thumbnail ">
-                <img className='rounded-lg' src={props.img} alt="" />
+            <img className='rounded-lg' src={props.img} alt="" />
+            <audio src=""></audio>
             </div>
             <div className="etc flex justify-between items-center">
                 <div className="title text-xl text-gray-500">
                     <h1>{props.title}</h1>
-                </div>
+                </div> 
                 <div className="download">
-                <a id='link' className='getlink' data-label={props.download} target='_blank no-follow' onClick={props.clickME}>
+                <button>
+                    <a id='link' className='getlink' data-label={props.download} target='_blank no-follow' onClick={props.clickME}>
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path 
                                     strokeLinecap="round" 
@@ -23,6 +25,7 @@ function Content(props) {
                                     />
                             </svg>
                     </a>
+                </button>
                 </div>
             </div>
         </div>

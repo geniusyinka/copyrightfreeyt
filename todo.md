@@ -24,3 +24,7 @@ s
 okay so some bottle neck. i'm thinking about simply adding the link to a 'data--' html attribute and get the data from there and do with it what i want. 
 
 okay so we'll take away the component and write everything inside of the dash component. and not abstract that bit a way for now. 
+
+
+i think we might need to change the one click download button to add a modal. so to remind people to credit the creator. 
+video is now saved with full title of actual video. 
