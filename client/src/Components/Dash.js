@@ -42,8 +42,6 @@ class Dash extends Component {
     render(props)  {
         var link = null;
         var url;
-        //var log;
-        var log2; //function declearation
 
         $(document).ready(function() {
             getLink();
@@ -53,8 +51,7 @@ class Dash extends Component {
         function getLink() {
             $("a.getlink").click(function(){
                 link = $(this).attr('data-label');
-                //url = "logged"
-                console.log(link); 
+               // console.log(link); 
                 return link
             });
             return link;
@@ -63,8 +60,6 @@ class Dash extends Component {
 
         function sendLink() {
             var theLink = getLink();
-            console.log(theLink)
-
             axios({
                 method: 'post',
                 url: '/data',
@@ -74,7 +69,7 @@ class Dash extends Component {
                 },
             })
             .then(res => {console.log(res.data)
-                    if (res.data.message === "filled!") {
+                    if (res.data.message === "success") {
                         window.open('/downloads', '_parent')
                     }
                 })
@@ -90,8 +85,10 @@ class Dash extends Component {
             //vid={datas.snippet.resourceId.videoId}
             download={`https://www.youtube.com/watch?v=${url}`} 
             clickME={getLink.bind(this), sendLink.bind(this)}
+            //iframe = {`https://www.youtube.com/embed/${url}`}
+            
         />
-    ))
+        ))
 
         return (
             <div>
