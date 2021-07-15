@@ -16,18 +16,11 @@ const ytdl = require('ytdl-core');
 //   );
 
 if (process.env.NODE_ENV === 'production') {
-
     app.use(express.static('client/build'));
 }
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
-
-app.get('/api', (req, res) => {
-    console.log('it works!');
-});
-
 
 var urls;
 
@@ -35,7 +28,7 @@ function datas(){
     app.post('/data', (req, res) => {
         urls = req.body.link;
         return res.json({
-            "message": "filled!"
+            "message": "success"
         })
     });
     return urls;
@@ -44,27 +37,28 @@ function datas(){
 datas();
 
 
-app.get('/downloads', (req, res) => {    
-    function makeid(length) {
-        var result           = '';
-        var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-        var charactersLength = characters.length;
-        for ( var i = 0; i < length; i++ ) {
-          result += characters.charAt(Math.floor(Math.random() * 
-     charactersLength));
-       }
-       return result;
-    }
+app.get('/downloads', async (req, res) => {    
 
-    var fileName = makeid(8) + ".mp3"
-    res.header('Content-Disposition', 'attachment; filename=" '+ fileName +'"');
+    //get file url from 'datas()' method and store in a variable 
     var url3 = datas();
+
+    //get video info form url
+    let name = await ytdl.getInfo(url3);
+
+    //get title data from 'ytdl.getInfo()'
+    let title = name.videoDetails.title;
+
+    // add .mp3 to filename
+    let fileName = title + ".mp3"
+
+    
+    res.header('Content-Disposition', 'attachment; filename=" '+ fileName +'"');
+
     ytdl(url3, {
         quality: 'highestaudio',
         filter: 'audioonly'
     }).pipe(res)
 })
-
 
 
 app.listen(port, () => console.log(`Server started on port ${port}`));
